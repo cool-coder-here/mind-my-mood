@@ -87,7 +87,7 @@ async function findMoodMusic(event) {
 
       let urlIndex = song1.indexOf("https://");
       newSong1 = song1.substring(0, urlIndex);
-      console.log(newSong1);
+
 
       song2 = songs[1]
         ? songs[1]
@@ -99,17 +99,9 @@ async function findMoodMusic(event) {
         : "";
       let urlIndex2 = song2.indexOf("https://");
       newSong2 = song2.substring(0, urlIndex2);
-      console.log(newSong2);
 
       youtube1 = songs[0].match(/https:\/\/www\.youtube\.com\/watch\?v=.*/g)[0];
       youtube2 = songs[1].match(/https:\/\/www\.youtube\.com\/watch\?v=.*/g)[0];
-
-      console.log(
-        `Music: ${song1}\nYoutube: ${youtube1.replace("Youtube link: ", "")}`
-      );
-      console.log(
-        `Music: ${song2}\nYoutube: ${youtube2.replace("Youtube link: ", "")}`
-      );
     } else {
       console.log("Error getting Mood: response data is invalid");
     }
@@ -167,11 +159,6 @@ async function findMoodFood(event) {
     const food2Data = foodArray[1].split(foodDataRegex);
     const food2Name = food2Data[0].substring(2);
     const food2Benefit = food2Data[1].trim();
-
-    console.log(`Food 1 Name: ${food1Name}`);
-    console.log(`Food 1 Benefit: ${food1Benefit}`);
-    console.log(`Food 2 Name: ${food2Name}`);
-    console.log(`Food 2 Benefit: ${food2Benefit}`);
 
     const moodFoodResult = document.getElementById("foodBlock");
     const resultDiv = moodFoodResult.querySelector("#foodResult");
