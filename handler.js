@@ -21,7 +21,6 @@ async function getMoodActivity(mood) {
       FROM openai_mood_activity_model
       WHERE mood="${parseMood}"`;
     const moodActivityRes = await Mindsdb.SQL.runQuery(text);
-    console.log("handler.js--->", moodActivityRes);
     if (!moodActivityRes.rows) {
       throw new Error("Invalid response from MindsDB");
     }
@@ -37,7 +36,6 @@ async function getMoodFood(mood) {
     const text = `SELECT Food
       FROM openai_mood_food_model WHERE mood="${parseMood}"`;
     const moodFoodRes = await Mindsdb.SQL.runQuery(text);
-    console.log(moodFoodRes);
     if (!moodFoodRes.rows) {
       throw new Error("Invalid response from MindsDB");
     }
@@ -54,7 +52,6 @@ async function getMoodMusic(mood) {
       FROM openai_mood_song_model
       WHERE mood="${parseMood}"`;
     const moodMusicRes = await Mindsdb.SQL.runQuery(text);
-    console.log(moodMusicRes);
     if (!moodMusicRes.rows) {
       throw new Error("Invalid response from MindsDB");
     }
